@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,6 @@ using UnityEngine.AI;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField] Transform target;
-
-    Ray lastRay;
-
     // Cached References
     NavMeshAgent myNavMeshAgent;
 
@@ -20,10 +17,15 @@ public class Move : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-            lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            MoveToCursor();
+    }
 
-        Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
+    void MoveToCursor()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        bool hasHit = Physics.Raycast(ray, out RaycastHit hitInfo);
 
-        myNavMeshAgent.SetDestination(target.position);
+        if (hasHit)
+            myNavMeshAgent.SetDestination(hitInfo.point);
     }
 }
