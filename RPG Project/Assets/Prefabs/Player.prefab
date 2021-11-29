@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4668091208764808014}
   - component: {fileID: 6043610736009703995}
   - component: {fileID: 5874634371095981208}
+  - component: {fileID: 2516814680473660103}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -85,10 +86,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 10
+  m_Speed: 5.66
   m_Acceleration: 100
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -109,6 +110,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0646441b78cbf43a80f5be6199cf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2516814680473660103
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834198016504547435}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
+  m_Controller: {fileID: 9100000, guid: 8f59fab18b4d87b4c9823a111a09f2cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &8986158608267199222
 PrefabInstance:
   m_ObjectHideFlags: 0

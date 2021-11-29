@@ -8,16 +8,20 @@ public class Move : MonoBehaviour
 {
     // Cached References
     NavMeshAgent myNavMeshAgent;
+    Animator animator;
 
     void Start()
     {
         myNavMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
             MoveToCursor();
+
+        UpdateAnimator();
     }
 
     void MoveToCursor()
@@ -27,5 +31,14 @@ public class Move : MonoBehaviour
 
         if (hasHit)
             myNavMeshAgent.SetDestination(hitInfo.point);
+    }
+
+    void UpdateAnimator()
+    {
+        Vector3 velocity = myNavMeshAgent.velocity;
+        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+        float speed = localVelocity.z;
+
+        animator.SetFloat("forwardSpeed", speed);
     }
 }
