@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace RPG.Movement
 {
-    public class Move : MonoBehaviour
+    public class Mover : MonoBehaviour
     {
         // Cached References
         NavMeshAgent myNavMeshAgent;
