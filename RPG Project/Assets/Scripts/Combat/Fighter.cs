@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
+using RPG.Core;
 
 namespace RPG.Combat
 {
@@ -11,10 +12,12 @@ namespace RPG.Combat
         
         Transform target;
         Mover mover;
+        ActionScheduler actionScheduler;
 
         void Start()
         {
             mover = GetComponent<Mover>();
+            actionScheduler = GetComponent<ActionScheduler>();
         }
 
         void Update()
@@ -35,6 +38,7 @@ namespace RPG.Combat
 
         public void Attack(CombatTarget combatTarget)
         {
+            actionScheduler.StartAction(this);
             target = combatTarget.transform;
         }
 
